@@ -146,8 +146,9 @@
     - fail: msg="Some networks are badly expressed {{ routed_networks }} vs {{ openvpn_client_routes }}"
       when: routed_networks_list | length != openvpn_client_routes | length
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_infra_master_opennext_post_osa_deploy"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_infra_master_opennext_post_osa_deploy"
         keys_to_store:
           - "^osa_infos$"
           - "^infra_master_public_ips_and_or_names$"

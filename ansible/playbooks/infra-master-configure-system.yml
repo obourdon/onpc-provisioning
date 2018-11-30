@@ -214,8 +214,9 @@
 
     - include_tasks: ../tasks/system_user_home.yml
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_infra_master_configure_system"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_infra_master_configure_system"
         keys_to_ignore:
           - "^system_net_itfs_.*"
           - "^primary_itf_file_content$"

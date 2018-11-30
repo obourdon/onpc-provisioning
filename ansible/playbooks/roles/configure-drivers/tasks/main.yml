@@ -14,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include_tasks: ../tasks/kernel_drivers_modules.yml module={{ item }}
+- include_tasks: ../tasks/kernel_drivers_modules.yml
+  vars:
+    module: "{{ item }}"
   with_items:
     - "bonding"
     - "bridge"

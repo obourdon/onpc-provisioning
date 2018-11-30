@@ -107,7 +107,11 @@
         auth: "{{ clouds.get('clouds', {}).get('bifrost-admin', {}).get('auth', {}) }}"
         auth_type: "password"
 
-    - include_tasks: ../tasks/ironic_introspection_rule.yml name={{ item.name }} template={{ item.template }} description={{ item.description }}
+    - include_tasks: ../tasks/ironic_introspection_rule.yml
+      vars:
+        name: "{{ item.name }}"
+        template: "{{ item.template }}"
+        description: "{{ item.description }}"
       with_items:
         - {
           name: "Generic Introspection Rule",
@@ -271,8 +275,9 @@
 
   post_tasks:
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_infra_master_post_deploy_bifrost"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_infra_master_post_deploy_bifrost"
         keys_to_store:
           - "^auth.*"
           - "^clouds$"

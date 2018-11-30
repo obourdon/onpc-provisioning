@@ -89,8 +89,9 @@
     - configure-disks-partitioning
 
   post_tasks:
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_osa_nodes_configure_system"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_osa_nodes_configure_system"
         keys_to_store:
           - "^.*vlans_ips"
           - "^cur_interfaces$"
@@ -112,8 +113,9 @@
 
   tasks:
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_osa_nodes_configure_system"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_osa_nodes_configure_system"
         keys_to_store:
           - "^.*vlans_ips"
           - "^cur_interfaces$"

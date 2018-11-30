@@ -421,8 +421,9 @@
         creates: /opt/.onpc_playbooks_done
         executable: /bin/bash
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_osa_master_opennext_deploy"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_osa_master_opennext_deploy"
         keys_to_store:
           - "^osa_deploy_hosts$"
           - "^osa_bridges_ips$"
@@ -441,8 +442,9 @@
 
   tasks:
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_osa_master_opennext_deploy"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_osa_master_opennext_deploy"
         keys_to_store:
           - "^osa_deploy_hosts$"
           - "^osa_bridges_ips$"

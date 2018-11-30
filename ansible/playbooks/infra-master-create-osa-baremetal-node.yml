@@ -185,8 +185,9 @@
       set_fact:
         node_infos: "{{ hostvars[inventory_hostname].registered_status.json }}"
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_infra_master_create_osa_nodes"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_infra_master_create_osa_nodes"
         force_update: true
         keys_to_store:
           - "^node_infos.*$"

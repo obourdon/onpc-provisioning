@@ -205,8 +205,9 @@
     - name: Printing alternate (shorter) deploy command
       debug: msg="{{ remote_cmd_line }}"
 
-    - include_tasks: ../tasks/store_facts.yml facts_file="opennext_infra_master_deploy_bifrost"
+    - include_tasks: ../tasks/store_facts.yml
       vars:
+        facts_file: "opennext_infra_master_deploy_bifrost"
         keys_to_store:
           - "^all_args$"
           - "^args_file$"

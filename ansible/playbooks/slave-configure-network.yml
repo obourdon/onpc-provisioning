@@ -36,7 +36,9 @@
         name: "{{ systempkgs | sort }}"
         state: latest
 
-    - include_tasks: ../tasks/kernel_drivers_modules.yml module={{ item }}
+    - include_tasks: ../tasks/kernel_drivers_modules.yml
+      vars:
+        module: {{ item }}
       with_items:
         - "bonding"
         - "bridge"
